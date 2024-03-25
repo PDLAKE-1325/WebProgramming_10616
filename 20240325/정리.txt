@@ -1,0 +1,12 @@
+리스트에 id넣기, id간 이동
+<li id="top"><a href="#bottom">맨 아래로</a></li> 
+ # : id= 줄임
+
+<table> 표 선언
+<tr> 줄 생성 (table row)
+<td> 칸 생성 (table data)
+rowspan="2" 세로 병합 2
+colspan="4" 가로병합 4
+
+넓은 공간 선택 <div>
+좁은 공간 선택 <span>
