@@ -22,11 +22,17 @@
             border-width: 3px;
             border-radius: 3%;
         }
+        fieldset:hover{
+            border-color: burlywood;
+        }
         p {
             font-family: "Hi Melody", sans-serif;
             font-weight: 400;
             font-style: normal;
             font-size: 35px;
+        }
+        u{
+            color: brown;
         }
         h1 {
             font-family: "Gugi", sans-serif;
@@ -35,12 +41,30 @@
             color: darkcyan;
             text-align: center;
         }
-
-
+        a:visited{
+            color: blue;
+        }
+        a:link{
+            color: aqua;
+        }
+        a:hover{
+            color: blueviolet;
+        }
+        label:hover{
+            background-color: chartreuse;
+        }
+        #n2:hover{
+            background-color: aquamarine;
+        }
+        .odd:hover{
+            background-color: yellow;
+            font-size: larger;
+        }
     </style>
 </head>
 <body>
     <h1>2024년 대학수학능력시험 국어영역 기출</h1>
+    <h2><a href="">정답 및 해설지로 이동</a></h2>
     <hr>
     <fieldset style="width: 20cm;">
         <legend> 보기 </legend>
@@ -61,12 +85,12 @@
         </p>
     </fieldset>
     <h4><b>8.</b> 윗글을 이해한 내용으로 적절하지 <u>않은</u> 것은?</h4>
-    <input type="radio" name="ans">데이터가 수치로 구성되지 않아도 최빈값을 구할 수 있다.<br>
-    <input type="radio" name="ans">데이터의 특징이 언제나 하나의 수치로 나타나는 것은 아니다.<br>
-    <input type="radio" name="ans">데이터가 정상적으로 수집되었다면 이상치가 존재하지 않는다.<br>
-    <input type="radio" name="ans">데이터에 동일한 수치가 여러 개 있어도 중앙값으로 결측치를
-    대체할 수 있다.<br>
-    <input type="radio" name="ans">데이터를 수집하는 과정에서 측정 오류가 발생한 값이라도
-    이상치가 아닐 수 있다.<br>
+    <input type="radio" name="ans" id="a1"><label for="a1" id="n1" class="odd">데이터가 수치로 구성되지 않아도 최빈값을 구할 수 있다.</label><br>
+    <input type="radio" name="ans" id="a2"><label for="a2" id="n2">데이터의 특징이 언제나 하나의 수치로 나타나는 것은 아니다.</label><br>
+    <input type="radio" name="ans" id="a3"><label for="a3" id="n3" class="odd">데이터가 정상적으로 수집되었다면 이상치가 존재하지 않는다.</label><br>
+    <input type="radio" name="ans" id="a4"><label for="a4" id="n4">데이터에 동일한 수치가 여러 개 있어도 중앙값으로 결측치를
+    대체할 수 있다.</label><br>
+    <input type="radio" name="ans" id="a5"><label for="a5" id="n5" class="odd">데이터를 수집하는 과정에서 측정 오류가 발생한 값이라도
+    이상치가 아닐 수 있다.</label><br>
 </body>
 </html>
