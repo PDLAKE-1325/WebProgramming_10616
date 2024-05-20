@@ -1,0 +1,130 @@
+/* 글꼴 설정 */
+@font-face {
+    font-family: abster;
+    src: url(font/abster-webfont.woff) format('woff');
+} 
+
+
+/* 전체 선택 */
+*{
+    margin: 0;
+    /* 바깥 여백 0 */
+    padding: 0;
+    /* 안쪽 여백 0 */
+    box-sizing: border-box;
+    /* 여백으로 인해 전체 와면의 크기가 변경되는 것을 방지 */
+    
+}/* 기본 여백 모두 제거 설정 */
+
+
+/* 배경처리 */
+/* 배경의 크기를 결정하고 배경의 색상 등을 처리해야한다 */
+.container{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.1)),url(./images/room.jpg);
+    /* 배경색을 그라데이션 처리, 사진삽입 */
+}
+
+
+/* 헤더배치 */
+/* 로고,메뉴 두덩어리 배치, 헤더영역 크기 결정 */
+.header{
+    width: 80%;
+    /* 80% 안에서 출력 */
+    height: 80px;
+    /* 80px 안에서 출력 */
+    margin: 0 auto  ;
+    /* 상하 0 좌우 자동 */
+    display: flex;
+    /* 일단 가로 배치 */
+    justify-content: space-between;
+    /* 양끝 정렬 */
+}
+
+
+/* 글자로고 */
+.container .header h1 a{
+    color: whitesmoke;
+    /* 글자색 */
+    text-decoration: none;
+    /* a(anchor)태그 밑줄같은거 없애기 */
+    font-family: abster;
+    /* 폰트스타일 정하기, abster는 위에 이름 정해놓음 */
+}
+
+
+/* 메뉴요소 배치 */
+/* li요소 원래 블록요소였는데 인라인요소로 변경해서 수평정렬 */
+.container .header .nav ul li{
+    margin: 0 10px;
+    display: inline;
+}
+
+
+/* 메뉴요소 스타일링 */
+.container .header .nav ul li a{
+    color: whitesmoke;
+    /* 글자색 */
+    text-decoration: none;
+    /* a태그 기본속성 제거 (밑줄) */
+}
+
+
+/* 메뉴요소 마우스이벤트 */
+/* hover 가상선택자를 이용해 마우스 올릴시 글자색 변경 */
+.container .header .nav ul li a:hover{
+    color: aqua;
+ 
+}
+
+/* 화면 중앙 요소 배치 */
+/*hero영역을 중앙에 배치하기 위해
+1)기준점을 부모요소기준으로 바꾸기 위래 position absolute 속성 사용.
+2) 기준점 대비 중앙값이 화면 가로크기 및 세로크기 대비 50% 50%로 값 설정
+ 3) 기준점을 설정한 후 기준점만 화면 정중앙에 배치되므로 실제 중앙에 오게 하려고 미세조정이 필요해서 transform:translate를 이용함 */
+.container .hero{
+    position: absolute;
+    /* 위치 기준점 : 절댓값(화면 왼쪽 위) */
+    transform: translate(-50%,-50%);
+    /* 현재 위치에서 미세조정 */
+    left: 50%;
+    top: 50%;
+    /* 왼쪽 50 위 50 밀기 */
+    text-align: center;
+    /* 중앙정렬 */
+    color: whitesmoke;
+}
+
+
+/* 화면 중앙 요소 제목 */
+.container .hero h2{
+    font-size: 60px;
+    margin-bottom: 10px;
+    /* 아래 여백 */
+}
+
+/* 화면 중앙 요소 본문 */
+.container .hero p{
+    font-size: larger;
+    margin-bottom: 20px;
+}
+
+
+/* 화면 중앙 요소 버튼 */
+.container .hero button{
+    padding: 15px 20px;
+    /* 버튼 크기 상하 좌우 */
+    border-radius: 20px;
+    /* 테두리 둥굴기 */
+    border: 2px solid aqua;
+    /* 테두리색 */
+    background-color:rgba(0,0,0,0.1);
+    /* 배경색 */
+    color: whitesmoke;
+}
+
+/* 화면 중앙 요소 버튼 처리 */
+.container .hero button:hover{
+    background-color:rgba(220, 220, 220, 0.4);
+}
