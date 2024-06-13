@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="add_style.css">
+</head>
+<body>
+    <h1>[ + 덧셈 계산기 + ]</h1>
+        <hr>
+    <div class="container">
+        
+        <label for="x">첫 번째 정수</label>
+        <input type="text" id="x"><br>
+        <label for="y">두 번째 정수</label>
+        <input type="text" id="y"><br>
+        <P>출력</P><br>
+        <input type="text" id="res"><br><br>
+    <button onclick="func()">계산</button>
+
+    </div>
+    
+
+    <script>
+            // let a=parseInt(prompt("더하기연산 x+y","x"));
+            // let b=parseInt(prompt("더하기연산 x+y","y"));
+            // document.write(a+b+"<br>");
+            function func(){
+                let x= parseInt(document.getElementById("x").value);
+                let y= parseInt(document.getElementById("y").value);
+                
+                document.getElementById("res").value=x+y;
+            }
+    </script>
+</body>
+</html>

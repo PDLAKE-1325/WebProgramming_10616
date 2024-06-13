@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="x">구구단 표시</label>
+    <select name="l" id="x" onchange="func(value)">
+        <option value="1">1단까지</option>
+        <option value="2">2단까지</option>
+        <option value="3">3단까지</option>
+        <option value="4">4단까지</option>
+        <option value="5">5단까지</option>
+        <option value="6">6단까지</option>
+        <option value="7">7단까지</option>
+        <option value="8">8단까지</option>
+        <option value="9">9단까지</option>
+    </select>
+    <script>
+        function func(x){
+        document.write("<h1>구구단표</h1>")
+
+            document.write("<table border=2 width=50% style=\"text-align: center;\">")
+            for(i=1;i<=x;i++){
+                document.write("<tr>")
+                for(j=1;j<=x;j++){
+                    document.write("<td>"+i*j+"</td>")
+                }
+                document.write("</tr>")
+
+            }
+        document.write("</table>")
+        }
+        
+    </script>
+</body>
+</html>
