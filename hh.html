@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        text-align: center;
+      }
+
+      #board {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      #board tr td {
+        border: 1px solid white;
+        background: #34da79;
+        width: 16px;
+        height: 16px;
+        text-align: center;
+        padding: 15px;
+      }
+
+      #board tr td.clicked {
+        background: #6c5ee7;
+      }
+
+      #board tr td.mine {
+        background: #ff0000;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>지뢰찾기</h1>
+    <table id="board"></table>
+    <button onclick="genGrid(8);">새로운 게임</button>
+    <script>
+      var arr = new Array(8);
+      for (let i = 0; i < 10; i++) {
+        arr[i] = new Array(8);
+      }
+
+      let grid = document.getElementById("board");
+      genGrid(8);
+      function genGrid(n) {
+        for (let i = 0; i < n; i++) {
+          for (let j = 0; j < n; j++) {
+            if (Math.random() < 0.2) {
+              arr[i][j] = 1;
+            } else {
+              arr[i][j] = 0;
+            }
+          }
+        }
+        grid.innerHTML = "";
+        for (let i = 0; i < n; i++) {
+          let row = grid.insertRow(i);
+          for (let j = 0; j < n; j++) {
+            let cell = row.insertCell(j);
+            // cell.innerHTML = i.toString() + j;
+            cell.onclick = function () {
+              clickBox(this);
+            };
+            cell.setAttribute("mine", i + "," + j);
+          }
+        }
+      }
+
+      function clickBox(cell) {
+        let coords = cell.getAttribute("mine").split(",");
+        let i = parseInt(coords[0]);
+        let j = parseInt(coords[1]);
+
+        if (arr[i][j] == 1) {
+          cell.className = "mine";
+          alert("게임이 종료되었습니다.");
+          grid.innerHTML = "";
+        } else {
+          openCells(i, j);
+        }
+      }
+      function openCells(i, j) {
+        let cell = grid.rows[i].cells[j];
+        if (cell.className == "clicked" || arr[i][j] == 1) return;
+        cell.className = "clicked";
+        let mines = 0;
+        for (let x = i - 1; x <= i + 1; x++) {
+          for (let y = j - 1; y <= j + 1; y++) {
+            if (x >= 0 && x < arr.length && y >= 0 && y < arr[x].length) {
+              if (arr[x][y] == 1) {
+                mines += 1;
+              }
+            }
+          }
+        }
+        cell.innerHTML = mines;
+        if (mines == 0) {
+          for (let x = i - 1; x <= i + 1; x++) {
+            for (let y = j - 1; y <= j + 1; y++) {
+              if (x >= 0 && x < arr.length && y >= 0 && y < arr[x].length) {
+                openCells(x, y);
+              }
+            }
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
